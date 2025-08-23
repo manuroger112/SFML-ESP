@@ -1,0 +1,1 @@
+Remember to correctly put the paths to the lib and library folders into Visual Studio "Linker" and "C++" tabs
