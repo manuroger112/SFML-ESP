@@ -5,8 +5,11 @@ you must make sure you have correctly put the paths for the "include" and "lib" 
 
 
 
-### **USAGE**### <br />
+### **USAGE** <br />
 
 -  you must be in windowed mode within the game <br />
 -  you must set your ingame resolution into the program <br />
--  and while in program if the esp is somehow not alligned correctly use the numpad keys (8, 4, 6, 2) to manually adjust the esp so that it starts from the center of your crosshair! <br />
+-  if the esp is somehow not alligned correctly use the numpad keys (8, 4, 6, 2) to manually adjust the lines so that they start from the center of your crosshair! <br />
+ <br />
+ <br />
+ https://youtu.be/NVSF2cz8zDY
