@@ -53,8 +53,8 @@ int main() {
 
 	std::cout << "PID: " << VARS::processId << " BDDR: " << VARS::baseAddress << "\n";
 
-	const int GameWidthResolution = 1360;
-	const int GameHeightResolution = 768;
+	const int GameWidthResolution = 1920;
+	const int GameHeightResolution = 1080;
 
 	int WindowCenterW = GameWidthResolution / 2;
 	int WindowCenterH = GameHeightResolution / 2;
