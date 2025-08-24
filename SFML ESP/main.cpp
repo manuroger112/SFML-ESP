@@ -36,8 +36,6 @@ namespace offsets {
 
 };
 
-
-
 void MakeLine(sf::RenderWindow& window, float x1, float y1, float x2, float y2) {
 
 	sf::Vertex line[2];
@@ -46,15 +44,14 @@ void MakeLine(sf::RenderWindow& window, float x1, float y1, float x2, float y2) 
 	window.draw(line, 2, sf::PrimitiveType::Lines);
 }
 
-
 int main() {
 	const float PI = 3.1415926;
 	int test = 1;
 
 	std::cout << "PID: " << VARS::processId << " BDDR: " << VARS::baseAddress << "\n";
 
-	const int GameWidthResolution = 1360;
-	const int GameHeightResolution = 768;
+	const int GameWidthResolution = 1920;
+	const int GameHeightResolution = 1080;
 
 	int WindowCenterW = GameWidthResolution / 2;
 	int WindowCenterH = GameHeightResolution / 2;
@@ -132,13 +129,21 @@ int main() {
 				float DistanceY = Ypos - LocalYpos;
 				float DistanceZ = Zpos - LocalZpos;
 
-				float YawCorrect = (180 / PI) * (atan2(DistanceY, DistanceX));
+				float YawCorrect = (180 / PI) * (atan2(DistanceY,DistanceX));
 				float PitchCorrect = (180 / PI) * -atan(DistanceZ / hypot(DistanceX, DistanceY));
 
 				float LocalYaw = VARS::memRead<float>(VARS::baseAddress + offsets::yaw);
 				float LocalPitch = VARS::memRead<float>(VARS::baseAddress + offsets::pitch);
 
-				float YawDisplacement = YawCorrect - LocalYaw;
+				float YawDisplacement = YawCorrect - LocalYaw;// YawCorrect - LocalYaw
+				
+				if (YawDisplacement > 180) {
+					YawDisplacement = -(360 - YawDisplacement);
+				}
+				else if (YawDisplacement < -180) {
+					YawDisplacement = 360 + YawDisplacement;
+				}
+
 				float PitchDisplacement = PitchCorrect - LocalPitch;
 
 				//Formula found on excel :) (it describes height of player in pixels and its relationship with distance)
